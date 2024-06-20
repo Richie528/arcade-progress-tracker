@@ -19,7 +19,7 @@ function save() {
 
 function display() {
     document.getElementById("target").value = ticketTarget;
-    if (ticketTarget === 0 || Number.isNaN(ticketTarget)) document.getElementById("target").value = "";
+    if (ticketTarget === 0) document.getElementById("target").value = "";
 
     if (Math.floor(ticketsEarned / ticketTarget * 300) < Math.floor((currentDate - arcadeStartDate) / (arcadeEndDate - arcadeStartDate) * 300)) {
         document.querySelector(".progress-bar-done").style.zIndex = "1";
@@ -43,12 +43,6 @@ function display() {
 document.getElementById("target").onkeyup = function() {
     ticketTarget = parseInt(document.getElementById("target").value);
     if (document.getElementById("target").value == "") ticketTarget = 0;
-    if (Number.isNaN(ticketTarget)) {
-        document.querySelector(".progress-bar").style.backgroundColor = "#cccccc";
-        document.getElementById("target").value = "";
-    } else {
-        document.querySelector(".progress-bar").style.backgroundColor = "#e78284";
-    }
     save();
     display();
 }
