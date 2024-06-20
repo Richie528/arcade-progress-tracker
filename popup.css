@@ -1,0 +1,63 @@
+body {
+    width: 300px;
+    height: 400px;
+    padding: 50px;
+    background-color: #eff1f5;
+    font-family: monospace;
+}
+
+h1 {
+    color: #4c4f69;
+    font-size: 22px;
+}
+
+.colours {
+    margin-top: 10px;
+}
+
+.colour {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+}
+
+.progress-bar {
+    position: relative;
+    margin-top: 10px;
+    background-color: #e78284;
+    height: 20px;
+    width: 300px;
+    border-radius: 5px;;
+}
+
+.progress-bar-done {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #a6d189;
+    height: 20px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.progress-bar-track {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #85c1dc;
+    height: 20px;
+    width: 150px;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.stats {
+    margin-top: 10px;
+    color: #6c6f85;
+}
+
+.x {color: #4c4f69;}
+
+.label {color: #6c6f85;}
+.target {color: #5c5f77;}
+.completed {color: #4c4f69;}

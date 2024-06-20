@@ -4,20 +4,37 @@
   <meta charset="utf-8">
   <title>Arcade Progress Tracker</title>
   <link rel="stylesheet" href="popup.css">
-  <link rel = "preconnect" href = "https://fonts.googleapis.com">
-  <link rel = "preconnect" href = "https://fonts.gstatic.com" crossorigin>
-  <link href = "https://fonts.googleapis.com/css2?family=Golos+Text&display=swap" rel = "stylesheet">
 </head>
 <body>
   <h1>Arcade Progress Tracker</h1>
 
   <div class="label">Ticket target</div>
-  <input id="target" class="target" type="text" autocomplete="off" maxlength="10" placeholder="Enter your target here"
-  onkeypress="return (event.charCode != 8 && event.charCode == 0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
+  <input id="target" class="target" type="text" autocomplete="off" maxlength="10" placeholder="Enter your target here">
   
-  <div class="progress-bar"><div class="progress-bar-inner"></div></div>
+  <div class="colours">
+    <div><span class="colour" style="background-color:#a6d189"></span> you are here</div>
+    <div><span class="colour" style="background-color:#85c1dc"></span> you should be here</div>
+    <div><span class="colour" style="background-color:#e78284"></span> you have this much to go</div>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-bar-done"></div>
+    <div class="progress-bar-track"></div>
+  </div>
+
+  <div class="stats">
+    You have earned <span class="x tickets-earned">x</span> tickets <br>
+    You still need <span class="x tickets-needed">x</span> tickets <br>
+    You are <span class="x tickets-percent">x</span>% of the way there <br>
+  </div>
+  <div class="stats">
+    The arcade has been running for <span class="x days-passed">x</span> days <br>
+    The arcade ends in <span class="x days-remaining">x</span> days <br>
+    The arcade is <span class="x days-percent">x</span>% complete <br>
+  </div>
   
   <br><button id="complete" class="completed">I hacked for an hour!</button>
+  <button id="uncomplete" class="uncompleted">⎌</button>
 
   <script src="popup.js"></script>
 </body>
