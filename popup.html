@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Arcade Progress Tracker</title>
+  <link rel="stylesheet" href="popup.css">
+  <link rel = "preconnect" href = "https://fonts.googleapis.com">
+  <link rel = "preconnect" href = "https://fonts.gstatic.com" crossorigin>
+  <link href = "https://fonts.googleapis.com/css2?family=Golos+Text&display=swap" rel = "stylesheet">
+</head>
+<body>
+  <h1>Arcade Progress Tracker</h1>
+
+  <div class="label">Ticket target</div>
+  <input id="target" class="target" type="text" autocomplete="off" maxlength="10" placeholder="Enter your target here"
+  onkeypress="return (event.charCode != 8 && event.charCode == 0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
+  
+  <div class="progress-bar"><div class="progress-bar-inner"></div></div>
+  
+  <br><button id="complete" class="completed">I hacked for an hour!</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>
