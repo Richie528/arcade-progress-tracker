@@ -36,7 +36,7 @@ h1 {
     left: 0px;
     background-color: #a6d189;
     height: 20px;
-    width: 200px;
+    width: 0px;
     border-radius: 5px;
 }
 
@@ -46,7 +46,7 @@ h1 {
     left: 0px;
     background-color: #85c1dc;
     height: 20px;
-    width: 150px;
+    width: 0px;
     border-radius: 5px;
     z-index: 1;
 }
@@ -56,7 +56,10 @@ h1 {
     color: #6c6f85;
 }
 
-.x {color: #4c4f69;}
+.x {
+    color: #4c4f69;
+    font-weight: 700;
+}
 
 .label {color: #6c6f85;}
 .target {color: #5c5f77;}
