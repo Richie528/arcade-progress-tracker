@@ -1,5 +1,6 @@
 let targetIds = ["custom", "random-stickers", "chosen-stickers", "openai-credits", "domain", "notebook", "logic-analyzer", "breadboard", "multimeter", "ticket-counter", "soldering-iron", "pinecil", "yubikey", "github-keycaps", "octocat", "wacom", "backpack", "flipper", "keyboard", "framework-2nd", "prusa", "bambu-lab", "framework-13", "quest", "framework-16", "macbook"];
 let targetValues = [0, 1, 2, 4, 4, 5, 5, 6, 7, 7, 8, 14, 15, 15, 15, 25, 50, 70, 75, 120, 130, 135, 175, 200, 400, 400];
+let imgs = ["images/tickets.png", "images/stickers.png", "images/sticker.png", "images/openai.png", "images/domain.png", "images/notebook.png", "images/logic.png", "images/breadboard.png", "images/multimeter.png", "images/counter.png", "images/iron.png", "images/pinecil.png", "images/yubikey.png", "images/keycaps.png", "images/octocat.png", "images/wacom.png", "images/backpack.png", "images/flipper.png", "images/keyboard.png", "images/framework.png", "images/prusa.png", "images/bambu.png", "images/framework2.png", "images/vr.png", "images/framework3.png", "images/macbook.png"];
 let selectedTarget = 0;
 let ticketTarget = 100;
 let customTarget = 0;
@@ -27,6 +28,7 @@ function save() {
 }
 
 function display() {
+    document.querySelector(".image").src = imgs[selectedTarget];
     document.getElementById("target").value = targetIds[selectedTarget];
     document.getElementById("custom").value = customTarget;
     if (customTarget === 0) document.getElementById("custom").value = "";

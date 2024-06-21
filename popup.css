@@ -21,9 +21,16 @@ h1 {
     height: 10px;
 }
 
+.image {
+    margin-top: 5px;
+    height: 70px;
+    width: 70px;
+    object-fit: contain;
+}
+
 .progress-bar {
     position: relative;
-    margin-top: 10px;
+    margin-top: 5px;
     background-color: #e78284;
     height: 20px;
     width: 300px;
