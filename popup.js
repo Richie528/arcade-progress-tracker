@@ -1,25 +1,38 @@
+let targetIds = ["custom", "random-stickers", "chosen-stickers", "openai-credits", "domain", "notebook", "logic-analyzer", "breadboard", "multimeter", "ticket-counter", "soldering-iron", "pinecil", "yubikey", "github-keycaps", "octocat", "wacom", "backpack", "flipper", "keyboard", "framework-2nd", "prusa", "bambu-lab", "framework-13", "quest", "framework-16", "macbook"];
+let targetValues = [0, 1, 2, 4, 4, 5, 5, 6, 7, 7, 8, 14, 15, 15, 15, 25, 50, 70, 75, 120, 130, 135, 175, 200, 400, 400];
+let selectedTarget = 0;
 let ticketTarget = 100;
+let customTarget = 0;
 let ticketsEarned = 0;
-
 let currentDate = Date.now();
 let arcadeStartDate = new Date("2024-6-18");
 let arcadeEndDate = new Date("2024-8-31");
 
 function load() {
+    if (localStorage.getItem("selected-target") === null) localStorage.setItem("selected-target", "0");
     if (localStorage.getItem("ticket-target") === null) localStorage.setItem("ticket-target", "0");
     if (localStorage.getItem("tickets-earned") === null) localStorage.setItem("tickets-earned", "0");
+    if (localStorage.getItem("custom-target") === null) localStorage.setItem("custom-target", "0");
+    selectedTarget = parseInt(localStorage.getItem("selected-target"));
     ticketTarget = parseInt(localStorage.getItem("ticket-target"));
     ticketsEarned = parseInt(localStorage.getItem("tickets-earned"));
+    customTarget = parseInt(localStorage.getItem("custom-target"));
 }
 
 function save() {
+    localStorage.setItem("selected-target", selectedTarget);
     localStorage.setItem("ticket-target", ticketTarget);
     localStorage.setItem("tickets-earned", ticketsEarned);
+    localStorage.setItem("custom-target", customTarget);
 }
 
 function display() {
-    document.getElementById("target").value = ticketTarget;
-    if (ticketTarget === 0) document.getElementById("target").value = "";
+    document.getElementById("target").value = targetIds[selectedTarget];
+    document.getElementById("custom").value = customTarget;
+    if (customTarget === 0) document.getElementById("custom").value = "";
+
+    if (selectedTarget === 0) document.getElementById("custom").style.visibility = "visible";
+    else document.getElementById("custom").style.visibility = "hidden";
 
     if (Math.floor(ticketsEarned / ticketTarget * 300) < Math.floor((currentDate - arcadeStartDate) / (arcadeEndDate - arcadeStartDate) * 300)) {
         document.querySelector(".progress-bar-done").style.zIndex = "1";
@@ -40,9 +53,26 @@ function display() {
     document.querySelector(".days-percent").textContent = Math.floor((currentDate - arcadeStartDate) / (arcadeEndDate - arcadeStartDate) * 100);
 }
 
-document.getElementById("target").onkeyup = function() {
-    ticketTarget = parseInt(document.getElementById("target").value);
-    if (document.getElementById("target").value == "") ticketTarget = 0;
+function update() {
+    selectedTarget = targetIds.indexOf(document.getElementById("target").value);
+    ticketTarget = targetValues[selectedTarget];
+    if (ticketTarget === 0) {
+        customTarget = parseInt(document.getElementById("custom").value);
+        if (document.getElementById("custom").value === "") customTarget = 0;
+        ticketTarget = customTarget;
+    }
+    save();
+    display();
+}
+
+document.getElementById("target").onchange = function() {
+    update();
+    save();
+    display();
+}
+
+document.getElementById("custom").onkeyup = function() {
+    update();
     save();
     display();
 }

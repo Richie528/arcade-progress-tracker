@@ -51,16 +51,16 @@ h1 {
     z-index: 1;
 }
 
-.stats {
-    margin-top: 10px;
-    color: #6c6f85;
-}
-
 .x {
-    color: #4c4f69;
+    color: #712780;
     font-weight: 700;
 }
 
+.custom {
+    color: #5c5f77;
+    width: 90px;
+}
+
+.stats {margin-top: 10px;}
 .label {color: #6c6f85;}
-.target {color: #5c5f77;}
-.completed {color: #4c4f69;}
+button {color: #4c4f69;}
