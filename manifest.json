@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Arcade Progress Tracker",
   "version": "1.0.1",
   "description": "moo",
@@ -9,9 +9,13 @@
   "icons": {
     "48": "icons/icon.png"
   },
-  "browser_action": {
+  "action": {
     "default_popup": "popup.html",
     "default_icon": "icons/icon.png"
   },
-  "browser_specific_settings": {"gecko": {"id": "{051c3440-4a2b-4525-9d3c-3f6ac3e647a1}"}}
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{051c3440-4a2b-4525-9d3c-3f6ac3e647a1}"
+    }
+  }
 }
